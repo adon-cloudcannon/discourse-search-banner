@@ -3,14 +3,26 @@
     class="{{concat (theme-setting 'plugin_outlet') '-outlet'}} search-banner"
   >
     <div
-      class="custom-search-banner"
+      class="custom-search-banner welcome-banner"
       {{did-insert this.didInsert}}
       {{will-destroy this.willDestroy}}
     >
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
       <div class="wrap custom-search-banner-wrap">
-        <h1>{{html-safe (theme-i18n "search_banner.headline")}}</h1>
+        <h1>Welcome to <span class="highlight">our community</span></h1>
         <PluginOutlet @name="search-banner-below-headline" />
-        <p>{{html-safe (theme-i18n "search_banner.subhead")}}</p>
+        <!--<p>{{html-safe (theme-i18n "search_banner.subhead")}}</p>-->
         <div class="search-menu">
           {{#unless this.buttonText}}
             <SearchIcon />
