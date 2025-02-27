@@ -7,22 +7,10 @@
       {{did-insert this.didInsert}}
       {{will-destroy this.willDestroy}}
     >
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
       <div class="wrap custom-search-banner-wrap">
         <h1>Welcome to <span class="highlight">our community</span></h1>
         <PluginOutlet @name="search-banner-below-headline" />
-        <!--<p>{{html-safe (theme-i18n "search_banner.subhead")}}</p>-->
+        <p>{{html-safe (theme-i18n "search_banner.subhead")}}</p>
         <div class="search-menu">
           {{#unless this.buttonText}}
             <SearchIcon />
