@@ -2,4 +2,5 @@ en:
   search_banner:
     headline: "Welcome to our community"
     subhead: "We're happy to have you here. If you need help, please search before you post."
+    highlight: ""
     search_button_text: ""
