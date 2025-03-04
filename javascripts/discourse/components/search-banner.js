@@ -58,6 +58,12 @@ export default class SearchBanner extends Component {
     return buttonText;
   }
 
+  get headlineText() {
+    const headlineText = i18n(themePrefix("search_banner.headline"));
+
+    return headlineText;
+  }
+
   get shouldDisplay() {
     return this.displayForRoute && this.displayForUser;
   }
