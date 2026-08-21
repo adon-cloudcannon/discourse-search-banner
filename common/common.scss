@@ -50,16 +50,8 @@ $max-width: 600px;
   }
 
   .menu-panel.search-menu-panel {
-    position: absolute;
-    top: 2.75em;
-    left: 0;
-    right: 0;
-    width: auto;
+    width: 100%;
     max-width: none;
-    padding: 0.5em;
-    background: var(--secondary);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
-    box-sizing: border-box;
   }
 
   .d-icon-search {
@@ -138,6 +130,10 @@ $max-width: 600px;
   }
 
   .results {
+    top: auto;
+    bottom: auto;
+    transform: none;
+
     ul,
     ol {
       list-style-type: none;
