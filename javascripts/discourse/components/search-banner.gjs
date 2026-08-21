@@ -7,8 +7,6 @@ import { service } from "@ember/service";
 import { htmlSafe } from "@ember/template";
 import PluginOutlet from "discourse/components/plugin-outlet";
 import SearchMenu from "discourse/components/search-menu";
-import themeI18n from "discourse/helpers/theme-i18n";
-import themeSetting from "discourse/helpers/theme-setting";
 import { defaultHomepage } from "discourse/lib/utilities";
 import { i18n } from "discourse-i18n";
 import SearchIcon from "./search-icon";
@@ -91,7 +89,7 @@ export default class SearchBanner extends Component {
   <template>
     {{#if this.shouldDisplay}}
       <div
-        class="{{concat (themeSetting 'plugin_outlet') '-outlet'}} search-banner"
+        class="{{concat settings.plugin_outlet '-outlet'}} search-banner"
       >
         <div
           class="custom-search-banner welcome-banner"
@@ -102,7 +100,7 @@ export default class SearchBanner extends Component {
             <h1>{{this.headlineText}}
               <span class="highlight">{{this.highlightText}}</span></h1>
             <PluginOutlet @name="search-banner-below-headline" />
-            <p>{{htmlSafe (themeI18n "search_banner.subhead")}}</p>
+            <p>{{htmlSafe (i18n (themePrefix "search_banner.subhead"))}}</p>
             <div class="search-menu">
               {{#unless this.buttonText}}
                 <SearchIcon />
