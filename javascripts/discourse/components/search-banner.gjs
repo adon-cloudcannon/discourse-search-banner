@@ -1,8 +1,17 @@
 import Component from "@glimmer/component";
+import { concat } from "@ember/helper";
 import { action } from "@ember/object";
+import didInsert from "@ember/render-modifiers/modifiers/did-insert";
+import willDestroy from "@ember/render-modifiers/modifiers/will-destroy";
 import { service } from "@ember/service";
+import { htmlSafe } from "@ember/template";
+import PluginOutlet from "discourse/components/plugin-outlet";
+import SearchMenu from "discourse/components/search-menu";
+import themeI18n from "discourse/helpers/theme-i18n";
+import themeSetting from "discourse/helpers/theme-setting";
 import { defaultHomepage } from "discourse/lib/utilities";
 import { i18n } from "discourse-i18n";
+import SearchIcon from "./search-icon";
 
 export default class SearchBanner extends Component {
   @service router;
@@ -78,4 +87,38 @@ export default class SearchBanner extends Component {
     // but we need it for backwards compatibility
     document.documentElement.classList.add("display-search-banner");
   }
+
+  <template>
+    {{#if this.shouldDisplay}}
+      <div
+        class="{{concat (themeSetting 'plugin_outlet') '-outlet'}} search-banner"
+      >
+        <div
+          class="custom-search-banner welcome-banner"
+          {{didInsert this.didInsert}}
+          {{willDestroy this.willDestroy}}
+        >
+          <div class="wrap custom-search-banner-wrap">
+            <h1>{{this.headlineText}}
+              <span class="highlight">{{this.highlightText}}</span></h1>
+            <PluginOutlet @name="search-banner-below-headline" />
+            <p>{{htmlSafe (themeI18n "search_banner.subhead")}}</p>
+            <div class="search-menu">
+              {{#unless this.buttonText}}
+                <SearchIcon />
+              {{/unless}}
+              <SearchMenu />
+              {{#if this.buttonText}}
+                <SearchIcon
+                  @buttonText={{this.buttonText}}
+                  @buttonClass="has-search-button-text"
+                />
+              {{/if}}
+            </div>
+            <PluginOutlet @name="search-banner-below-input" />
+          </div>
+        </div>
+      </div>
+    {{/if}}
+  </template>
 }
