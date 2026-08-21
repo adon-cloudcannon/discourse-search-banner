@@ -130,9 +130,9 @@ $max-width: 600px;
   }
 
   .results {
-    top: auto;
-    bottom: auto;
-    transform: none;
+    top: auto !important;
+    bottom: auto !important;
+    transform: none !important;
 
     ul,
     ol {
