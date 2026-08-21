@@ -49,9 +49,17 @@ $max-width: 600px;
     }
   }
 
-  .menu-panel-results .menu-panel {
-    position: unset;
-    padding: 0;
+  .menu-panel.search-menu-panel {
+    position: absolute;
+    top: 2.75em;
+    left: 0;
+    right: 0;
+    width: auto;
+    max-width: none;
+    padding: 0.5em;
+    background: var(--secondary);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+    box-sizing: border-box;
   }
 
   .d-icon-search {
@@ -130,20 +138,6 @@ $max-width: 600px;
   }
 
   .results {
-    box-sizing: border-box;
-    background: var(--secondary);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
-    position: absolute;
-    z-index: 9;
-    margin-left: auto;
-    margin-right: auto;
-    left: 0;
-    top: 2.75em;
-    right: 0;
-    padding: 0.5em;
-    @include breakpoint(mobile-extra-large) {
-      width: 100%;
-    }
     ul,
     ol {
       list-style-type: none;
