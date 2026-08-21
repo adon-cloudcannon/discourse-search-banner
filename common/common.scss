@@ -144,6 +144,10 @@ $max-width: 600px;
     }
   }
 
+  a.search-link {
+    text-align: left;
+  }
+
   .search-link .d-icon {
     color: var(--primary-medium);
   }
